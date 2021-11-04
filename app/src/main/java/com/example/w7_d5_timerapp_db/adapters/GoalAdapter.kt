@@ -24,10 +24,11 @@ class GoalAdapter(private val activity: MainActivity):
         val goal = goals[position]
 
         holder.binding.apply {
-            goalTextView.text = goal.g_title +" "+ goal.g_description +" "+  goal.g_icon +" "+  goal.g_state //name of the entity column
+            goalTextView.text = goal.g_title +" "+ goal.g_description +" "+  goal.g_icon +" "+  goal.g_state +" "+  goal.g_time //name of the entity column
             if (position % 2 == 0) {
                 holderLinearLayout.setBackgroundColor(Color.GRAY)
             }
+            //todo write delete and update
             /*
             delete.setOnClickListener {
                 activity.mainViewModel.deleteGoal(goal.g_id)

@@ -27,10 +27,11 @@ class TaskAdapter (private val activity: MainTask):
         val task = tasks[position]
 
         holder.binding.apply {
-            taskTextView.text = task.t_title +" "+ task.t_state +" "+ task.g_id //name of the entity column
+            taskTextView.text = task.t_title +" "+ task.t_state +" "+ task.t_time +" "+ task.g_id //name of the entity column
             if (position % 2 == 0) {
                 holderLinearLayout.setBackgroundColor(Color.GRAY)
             }
+            //todo call the update and delete func from the adapter
             /*
             delete.setOnClickListener {
                 activity.mainViewModel.deleteGoal(goal.g_id)

@@ -33,13 +33,13 @@ class MainTask : AppCompatActivity() {
 
         submitBtn = findViewById(R.id.saveButton)
         submitBtn.setOnClickListener {
-            taskViewModel.addTask(0,taskEditText.text.toString(), "uncompleted",1)
+            taskViewModel.addTask(0,taskEditText.text.toString(), "uncompleted","00:00:00",1)
             clearSetting()
         }
 
         updateBtn = findViewById(R.id.updateButton)
         updateBtn.setOnClickListener {
-            taskViewModel.editTask(2,taskEditText.text.toString(), "completed",1)
+            taskViewModel.editTask(2,taskEditText.text.toString(), "completed","03:00:00",1)
             clearSetting()
         }
 

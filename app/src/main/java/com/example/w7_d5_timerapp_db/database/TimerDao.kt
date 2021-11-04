@@ -23,8 +23,8 @@ interface TimerDao {
     fun getTasks(): LiveData<List<Task>>
 
     //@Transaction
-    //@Query("SELECT * FROM TasksTable WHERE g_id = :goal_id ORDER BY t_id ASC")
-    //fun getTasks(goal_id : Int): LiveData<List<Task>>
+    //@Query("SELECT * FROM TasksTable WHERE g_id = IN ORDER BY t_id ASC")
+    //fun getTasks(goal : Goal): LiveData<List<Task>>
 
     //@Transaction
     //@Query("SELECT * FROM GoalsTable WHERE g_id = :goal_id ORDER BY g_id ASC")

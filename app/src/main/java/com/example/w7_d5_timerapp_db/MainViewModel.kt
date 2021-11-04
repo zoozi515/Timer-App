@@ -27,45 +27,43 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             return goals
         }
 
-        fun addGoal(goalTitle: String, goalDescription : String, goalIcon: String, goalState: String){
+        fun addGoal(goalTitle: String, goalDescription : String, goalIcon: String, goalState: String, g_time : String){
             CoroutineScope(Dispatchers.IO).launch {
-                repository.addGoal(Goal(0,goalTitle, goalDescription, goalIcon, goalState)) //no need to specify the id bcz it's auto
+                repository.addGoal(Goal(0,goalTitle, goalDescription, goalIcon, goalState, g_time)) //no need to specify the id bcz it's auto
             }
         }
 
-        fun editGoal(goalID: Int, goalTitle: String, goalDescription : String, goalIcon: String, goalState: String){
+        fun editGoal(goalID: Int, goalTitle: String, goalDescription : String, goalIcon: String, goalState: String, g_time : String){
             CoroutineScope(Dispatchers.IO).launch {
-                repository.updateGoal(Goal(goalID,goalTitle, goalDescription, goalIcon, goalState))
+                repository.updateGoal(Goal(goalID,goalTitle, goalDescription, goalIcon, goalState, g_time))
             }
         }
 
         fun deleteGoal(goalID: Int){
             CoroutineScope(Dispatchers.IO).launch {
-                repository.deleteGoal(Goal(goalID,"","","",""))
+                repository.deleteGoal(Goal(goalID,"","","","",""))
             }
         }
 
-        fun getTasks(): LiveData<List<Task>> {
+        fun getTasks(): LiveData<List<Task>> { //todo add parameter
             return tasks
         }
 
-        fun addTask(taskID: Int, taskTitle: String, taskState: String, goalID: Int){
+        fun addTask(taskID: Int, taskTitle: String, taskState: String, taskTime : String, goalID: Int){
             CoroutineScope(Dispatchers.IO).launch {
-                repository.addTask(Task(0,taskTitle, taskState, goalID)) //no need to specify the id bcz it's auto
+                repository.addTask(Task(0,taskTitle, taskState, taskTime, goalID)) //no need to specify the id bcz it's auto
             }
         }
 
-        fun editTask(taskID: Int, taskTitle: String, taskState: String, goalID: Int){
+        fun editTask(taskID: Int, taskTitle: String, taskState: String, taskTime : String, goalID: Int){
             CoroutineScope(Dispatchers.IO).launch {
-                repository.updateTask(Task(taskID,taskTitle, taskState, goalID))
+                repository.updateTask(Task(taskID,taskTitle, taskState, taskTime, goalID))
             }
         }
 
         fun deleteTask(taskID: Int){
             CoroutineScope(Dispatchers.IO).launch {
-                repository.deleteTask(Task(taskID,"","",0))
+                repository.deleteTask(Task(taskID,"","","",0))
             }
         }
-
-
 }

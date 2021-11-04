@@ -36,13 +36,13 @@ class MainActivity : AppCompatActivity() {
 
         submitBtn = findViewById(R.id.saveButton)
         submitBtn.setOnClickListener {
-            mainViewModel.addGoal(goalEditText.text.toString(),descriptionEditText.text.toString(),"no icon", "uncompleted")
+            mainViewModel.addGoal(goalEditText.text.toString(),descriptionEditText.text.toString(),"no icon", "uncompleted","00:00:00")
             clearSetting()
         }
 
         updateBtn = findViewById(R.id.updateButton)
         updateBtn.setOnClickListener {
-            mainViewModel.editGoal(2,goalEditText.text.toString(),descriptionEditText.text.toString(),"icon", "completed")
+            mainViewModel.editGoal(2,goalEditText.text.toString(),descriptionEditText.text.toString(),"icon", "completed","3:00:00")
             clearSetting()
         }
 
