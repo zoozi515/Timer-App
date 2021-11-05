@@ -12,3 +12,5 @@ data class Goal(
     val g_icon: String, //bitmap
     val g_state: String, //completed - un (todo turn to boolean)
     val g_time: String) //todo make state and total time default
+
+// what if we added tasks as a list

@@ -10,4 +10,4 @@ data class Task(
     val t_title: String,
     val t_state: String, //todo turn to boolean
     val t_time: String, //todo or date
-    val g_id: Int)
+    val goal_id: Int)
