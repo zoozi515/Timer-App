@@ -7,65 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"/>
-
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGoal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="8dp" />
 
         <EditText
-            android:id="@+id/goalEditText"
+            android:id="@+id/etGoal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="0"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter Your Goal" />
+            android:hint="Enter Your Goal"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/addGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="Goal" />
+
+        <TextView
+            android:id="@+id/tvGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Goal name" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTask"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="8dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
         <EditText
-            android:id="@+id/descriptionEditText"
+            android:id="@+id/etTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="0"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter the description" />
+            android:hint="Enter Your Tasks"
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/saveButton"
+            android:id="@+id/addTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Submit" />
-        <Button
-            android:id="@+id/updateButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Update" />
-        <Button
-            android:id="@+id/deleteButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete" />
+            android:layout_weight="0"
+            android:text="Task" />
+
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

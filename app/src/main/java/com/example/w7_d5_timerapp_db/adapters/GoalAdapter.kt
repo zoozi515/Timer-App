@@ -1,6 +1,7 @@
 package com.example.w7_d5_timerapp_db.adapters
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,9 +9,9 @@ import com.example.w7_d5_timerapp_db.MainActivity
 import com.example.w7_d5_timerapp_db.database.Goal
 import com.example.w7_d5_timerapp_db.databinding.GoalRowBinding
 
-class GoalAdapter(private val activity: MainActivity):
+class GoalAdapter(val activity: MainActivity):
     RecyclerView.Adapter<GoalAdapter.ItemViewHolder>() {
-    private var goals = emptyList<Goal>()
+    var goals = emptyList<Goal>()
 
     class ItemViewHolder(val binding: GoalRowBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -22,28 +23,21 @@ class GoalAdapter(private val activity: MainActivity):
 
     override fun onBindViewHolder(holder: GoalAdapter.ItemViewHolder, position: Int) {
         val goal = goals[position]
-
         holder.binding.apply {
-            goalTextView.text = goal.g_title +" "+ goal.g_description +" "+  goal.g_icon +" "+  goal.g_state +" "+  goal.g_time //name of the entity column
-            if (position % 2 == 0) {
-                holderLinearLayout.setBackgroundColor(Color.GRAY)
+            goalTextView.text = goal.g_title //name of the entity column
+            Log.d("TAG RV", "tv text is: ${goalTextView.text}")
+            llGoalRV.setOnClickListener {
+                activity.updateSelectedGoal(goal)
             }
-            //todo write delete and update
-            /*
-            delete.setOnClickListener {
-                activity.mainViewModel.deleteGoal(goal.g_id)
-            }
-            ibDeleteNote.setOnClickListener {
-                activity.mainViewModel.deleteNote(note.id)
-            }*/
         }
     }
 
     override fun getItemCount() = goals.size
 
     fun updateRecycleView(new_goals: List<Goal>) {
+        Log.d("TAG RV", "UPDATING RV")
+        Log.d("TAG RV", "NEW RV: \n${new_goals.toString()}")
         this.goals = new_goals
-        notifyDataSetChanged()
+        this.notifyDataSetChanged()
     }
-    // goals = items
 }
